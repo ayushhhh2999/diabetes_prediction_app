@@ -64,22 +64,13 @@ streamlit run frontend.py
 The model was trained on the popular PIMA Indians Diabetes Dataset with features such as:
 
 Pregnancies
-
 Glucose
-
 Blood Pressure
-
 Skin Thickness
-
 Insulin
-
 BMI
-
 Diabetes Pedigree Function
-
 Age
-<img width="1919" height="959" alt="image" src="https://github.com/user-attachments/assets/66af844f-a212-44a4-9ff5-3fb4c9d213cb" />
-<img width="1912" height="918" alt="image" src="https://github.com/user-attachments/assets/9ba492d3-265f-47cf-a4db-e75ab91da4cb" />
 
 📤 API Endpoint
 POST /predict
