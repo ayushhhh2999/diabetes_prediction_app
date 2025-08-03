@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
-# Load your trained model
+# Loading my model
 with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
@@ -24,7 +24,7 @@ class Patient(BaseModel):
 
 @app.post("/predict")
 def predict(patient: Patient):
-    # Prepare input in the same format as training data
+    # converting input in the same format as training data
     input_df = pd.DataFrame([{
         "Pregnancies": patient.pregnancies,
         "Glucose": patient.glucose,

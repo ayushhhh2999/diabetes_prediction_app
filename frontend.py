@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000/predict"  # Change to your server IP/port if deployed
+API_URL = "http://localhost:8000/predict"  # Changing my server IP/port if deployed
 
 st.title("Diabetes Prediction App")
 st.markdown("Enter patient details below:")
