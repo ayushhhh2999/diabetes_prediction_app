@@ -6,6 +6,7 @@ import pandas as pd
 from fastapi.responses import JSONResponse
 from schema.schema import Patient
 from schema.predict import make_predict
+import numpy as np
 app = FastAPI()
 
 @app.get("/")
@@ -17,7 +18,7 @@ def health_check():
 @app.post("/predict")
 def predict(patient: Patient):
     # converting input in the same format as training data
-    input_df = pd.DataFrame([{
+    input_df = {
         "Pregnancies": patient.pregnancies,
         "Glucose": patient.glucose,
         "BloodPressure": patient.blood_pressure,
@@ -26,11 +27,12 @@ def predict(patient: Patient):
         "BMI": patient.bmi,
         "DiabetesPedigreeFunction": patient.diabetes_pedigree_function,
         "Age": patient.age
-    }])
+    }
 
     # Run prediction
+    input = [val for val in input_df.values()]
     try:
-        ans = make_predict(input_df)
+        ans = make_predict(input)
         return JSONResponse(status_code=200, content={"predicted_category": ans})
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
